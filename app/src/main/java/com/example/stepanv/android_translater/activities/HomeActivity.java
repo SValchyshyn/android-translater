@@ -13,7 +13,7 @@ import com.example.stepanv.android_translater.dictionaryShema.Cit;
 import com.example.stepanv.android_translater.dictionaryShema.Entry;
 import com.example.stepanv.android_translater.dictionaryShema.OfflineTranslator;
 import com.example.stepanv.android_translater.dictionaryShema.Sense;
-import com.example.stepanv.android_translater.rest.NewsApiService;
+import com.example.stepanv.android_translater.rest.YandexTranslatorApiService;
 import com.example.stepanv.android_translater.rest.ServiceFactory;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView connectionField;
 
     private String LOG_TAG = "HomeActivity";
-    private NewsApiService onlineTranslator;
+    private YandexTranslatorApiService onlineTranslator;
     private OfflineTranslator offlineTranslator;
     private CompositeSubscription subscriptions = new CompositeSubscription();
 
@@ -62,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() >= 1) {
                     subscriptions.add(
-                            onlineTranslator.getTranslation(NewsApiService.LANGUAGE, NewsApiService.API_KEY, charSequence.toString())
+                            onlineTranslator.getTranslation(YandexTranslatorApiService.LANGUAGE, YandexTranslatorApiService.API_KEY, charSequence.toString())
                                     .subscribeOn(Schedulers.newThread())
                                     .observeOn(AndroidSchedulers.mainThread())
                                     .subscribe(
@@ -130,7 +130,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initApiService() {
-        onlineTranslator = ServiceFactory.createRetrofitService(NewsApiService.class, NewsApiService.ENDPOINT);
+        onlineTranslator = ServiceFactory.createRetrofitService(YandexTranslatorApiService.class, YandexTranslatorApiService.ENDPOINT);
     }
 
     @Override

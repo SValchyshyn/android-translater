@@ -6,6 +6,9 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Created by stepanv on 28.12.16.
+ */
 
 public class ServiceFactory {
 
