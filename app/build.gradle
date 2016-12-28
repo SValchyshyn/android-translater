@@ -5,11 +5,15 @@ android {
     buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "com.example.stepanv.android_translater"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        jackOptions {
+            enabled true
+        }
     }
     buildTypes {
         release {
@@ -17,28 +21,37 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    testCompile 'junit:junit:4.12'
 
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    compile "com.android.support:design:$supportLibraryVersion"
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
 
-    // easy api interface
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+        compile 'com.android.support:appcompat-v7:24.2.1'
+        testCompile 'junit:junit:4.12'
 
-    // rxAndroid dependency
-    compile "io.reactivex:rxandroid:$rxAndroidVersion"
-    compile "io.reactivex:rxjava:$rxJavaVersion"
+        compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+        compile "com.android.support:design:$supportLibraryVersion"
 
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+        // easy api interface
+        compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+        compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+        compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+
+        // rxAndroid dependency
+        compile "io.reactivex:rxandroid:$rxAndroidVersion"
+        compile "io.reactivex:rxjava:$rxJavaVersion"
+
+        compile 'com.jakewharton:butterknife:8.4.0'
+        annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+        compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
