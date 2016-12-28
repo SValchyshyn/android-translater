@@ -45,13 +45,23 @@ android {
         compile "io.reactivex:rxandroid:$rxAndroidVersion"
         compile "io.reactivex:rxjava:$rxJavaVersion"
 
+        compile 'com.fasterxml.jackson.core:jackson-core:2.7.3'
+        compile 'com.fasterxml.jackson.core:jackson-annotations:2.7.3'
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
+
         compile 'com.jakewharton:butterknife:8.4.0'
         annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-
-        compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     }
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
     }
 }

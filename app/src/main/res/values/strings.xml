@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Android-translater</string>
     <string name="enter_here">Enter here</string>
+    <string name="language"><![CDATA[Enlish -> Russian]]></string>
 </resources>

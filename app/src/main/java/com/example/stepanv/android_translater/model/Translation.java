@@ -7,25 +7,25 @@ import java.util.List;
  */
 
 public class Translation {
-  private int code;
-  private String lang;
-  private List<String> text;
+    private int code;
+    private String lang;
+    private List<String> text;
 
-  public Translation(int code, String lang, List<String> text) {
-    this.code = code;
-    this.lang = lang;
-    this.text = text;
-  }
+    public Translation(int code, String lang, List<String> text) {
+        this.code = code;
+        this.lang = lang;
+        this.text = text;
+    }
 
-  public int getCode() {
-    return code;
-  }
+    public int getCode() {
+        return code;
+    }
 
-  public String getLang() {
-    return lang;
-  }
+    public String getLang() {
+        return lang;
+    }
 
-  public List<String> getText() {
-    return text;
-  }
+    public List<String> getText() {
+        return text;
+    }
 }

@@ -9,20 +9,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceFactory {
 
-  public static <T> T createRetrofitService(final Class<T> clazz, final String endPoint) {
-    HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-    OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+    public static <T> T createRetrofitService(final Class<T> clazz, final String endPoint) {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
-    logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-    httpClient.addInterceptor(logging);
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        httpClient.addInterceptor(logging);
 
-    final Retrofit restAdapter = new Retrofit.Builder()
-        .baseUrl(endPoint)
-        .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-        .client(httpClient.build())
-        .build();
+        final Retrofit restAdapter = new Retrofit.Builder()
+                .baseUrl(endPoint)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .client(httpClient.build())
+                .build();
 
-    return restAdapter.create(clazz);
-  }
+        return restAdapter.create(clazz);
+    }
 }
